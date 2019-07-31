@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using ESAPIX.Common;
+using ESAPIX.Common.Args;
 
 namespace Cardan.PlanChecker
 {
@@ -22,9 +23,9 @@ namespace Cardan.PlanChecker
             base.OnStartup(e);
             var bs = new AppBootstrapper<MainView>(() => { return VMS.TPS.Common.Model.API.Application.CreateApplication(); });
             //You can use the following to load a context (for debugging purposes)
-            //args = ContextIO.ReadArgsFromFile(@"context.txt");
+            //args = ContextIO.ReadArgsFromFile(@"C:\Users\cwalker\Desktop\context.txt");
             //Might disable (uncomment) for plugin mode
-            //bs.IsPatientSelectionEnabled = false;
+            bs.IsPatientSelectionEnabled = true;
             bs.Run(args);
         }
 
